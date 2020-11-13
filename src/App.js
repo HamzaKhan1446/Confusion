@@ -1,20 +1,10 @@
 import React, { Component } from 'react';
-import {Navbar , NavbarBrand} from 'reactstrap';
+import Main from './components/MainComponent';
 import './App.css';
-import Menu from './components/MenuComponent';
-import {DISHES} from './shared/dishes';
+
 
 
 class App extends Component{
-
-  constructor(props)
-  {
-    super(props);
-
-    this.state={
-      dishes: DISHES
-    }
-  };
 
 
   render()
@@ -22,13 +12,8 @@ class App extends Component{
     return(
       <div className="App">
 
-      <Navbar dark color="primary">
-        <div className="container">
-          <NavbarBrand href="https://www.google.com.pk/"> Confusion App</NavbarBrand>
-        </div>
-      </Navbar>
+        <Main></Main>
 
-      <Menu dishes={this.state.dishes}></Menu>
      
     </div>
     );
