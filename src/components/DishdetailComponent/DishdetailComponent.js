@@ -4,18 +4,18 @@ import './Dishdetail.css';
 
 class Dishdetail extends Component{
 
-    renderComments(dish){
-        let comments=dish.comments;
+    renderComments(comments){
         if(comments!=null){
 
-         
-            let cmnts= comments.map((comment)=>{
+          
+          
+            const cmnts= comments.map((comment)=>{
 
                 return(
                     <div className="comments">
                     <li key={comment.id}>
                     <p>{comment.comment}</p>
-                <p>-- {comments.author} {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}</p>
+                <p>-- {comment.author} {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}</p>
                     </li>
                     </div>
                 );
@@ -59,9 +59,9 @@ class Dishdetail extends Component{
     render(){
         const dish=this.props.dish;
         if(dish!=null){
-            const dishItem = this.renderDish(this.props.dish);
-            const commentItem  = this.renderComments(dish);
-          
+            const dishItem = this.renderDish(dish);
+            const commentItem = this.renderComments(dish.comments);
+           
             return(
                 <div className="container">
                 <div className="row">
